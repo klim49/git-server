@@ -11,7 +11,7 @@ RUN sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/s
 #  https://lists.mindrot.org/pipermail/openssh-unix-dev/2017-August/036168.html
 # RUN sed -i 's/#UsePrivilegeSeparation.*$/UsePrivilegeSeparation no/' /etc/ssh/sshd_config
 
-RUN sed -i 's/#Port.*$/Port 2022/' /etc/ssh/sshd_config
+RUN sed -i 's/#Port.*$/Port 22/' /etc/ssh/sshd_config
 RUN chmod 775 /var/run
 RUN rm -f /var/run/nologin
 
@@ -44,7 +44,7 @@ RUN ls -l /
 RUN ls -l /home
 RUN ls -l /home/git
 
-EXPOSE 2022
+EXPOSE 22
 LABEL Description="sample git server; you need to add your ssh keys after startup; on restart you lose repos by default" Vendor="Red Hat" Version="1.0"
 
 USER git
