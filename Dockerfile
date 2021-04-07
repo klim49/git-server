@@ -25,15 +25,19 @@ RUN ln -s /home/git /repos # nicer repo url
 
 WORKDIR /home/git/
 
-#RUN mkdir -p /home/git/.ssh && \
-#    touch /home/git/.ssh/authorized_keys && \
-#    chmod 700 /home/git/.ssh && \
-#    chmod 600 /home/git/.ssh/authorized_keys && \
+RUN mkdir -p /home/git/.ssh && \
+    touch /home/git/.ssh/authorized_keys && \
+    chmod 700 /home/git/.ssh && \
+    chmod 600 /home/git/.ssh/authorized_keys && \
 #    mkdir /home/git/sample.git && \
 #    git -C /home/git/sample.git init --bare && \
-#    ssh-keygen -A
+    ssh-keygen -A
 
 RUN chown -R git:nobody /etc/ssh
+
+RUN chown -R git:nobody /etc/passwd
+
+RUN chown -R git:nobody /etc/group
 
 RUN chown git:nobody /home
 RUN chown -R git:nobody /home/git
