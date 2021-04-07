@@ -42,7 +42,9 @@ RUN chown -R git:nobody /etc/group
 RUN chown git:nobody /home
 RUN chown -R git:nobody /home/git
 RUN chmod 775 /home
-#RUN chmod -R 777 /home/git
+RUN chmod -R 777 /home/git
+
+RUN chown -R git:nobody /repos
 
 RUN ls -l /
 RUN ls -l /home
