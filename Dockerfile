@@ -11,6 +11,8 @@ RUN sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/s
 #  https://lists.mindrot.org/pipermail/openssh-unix-dev/2017-August/036168.html
 # RUN sed -i 's/#UsePrivilegeSeparation.*$/UsePrivilegeSeparation no/' /etc/ssh/sshd_config
 
+RUN sed -i "s/#PubkeyAuthentication yes/PubkeyAuthentication yes\nRSAAuthentication yes/" /etc/ssh/sshd_config
+
 RUN sed -i 's/#Port.*$/Port 2022/' /etc/ssh/sshd_config
 RUN chmod 775 /var/run
 RUN rm -f /var/run/nologin
